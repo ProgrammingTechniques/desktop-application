@@ -1,0 +1,19 @@
+<!-- templates/partials/data_table.html -->
+<table border="1">
+    <thead>
+        <tr>
+            {% for field in field_names %}
+                <th>{{ field }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in queryset %}
+            <tr>
+                {% for field in field_names %}
+                    <td>{{ obj|getattr:field }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
